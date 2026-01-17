@@ -414,8 +414,47 @@
 @media (max-width: 768px) {
     .layout {
         flex-direction: column;
+        padding-top: 60px;
+        /* Space for top header */
         padding-bottom: 70px;
         /* Space for bottom nav */
+    }
+
+    /* Mobile Header */
+    .mobile-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--space-md);
+        border-bottom: 1px solid var(--glass-border);
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+    }
+
+    .mobile-brand {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .mobile-logo {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid var(--glass-border);
+    }
+
+    .mobile-brand h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin: 0;
     }
 
     /* Sidebar transforms into Bottom Nav */
@@ -558,7 +597,9 @@
 }
 
 @media (min-width: 769px) {
-    .nav-item.mobile-only {
+
+    .nav-item.mobile-only,
+    .mobile-header {
         display: none;
     }
 

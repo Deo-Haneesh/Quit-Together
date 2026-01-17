@@ -105,6 +105,17 @@ export default function Layout() {
       {/* Cursor effect - optimized */}
       <CursorGlow />
 
+      {/* Mobile Header */}
+      <header className="mobile-header glass-panel">
+        <div className="mobile-brand">
+          <img src="/combined.jpg" alt="Logo" className="mobile-logo" />
+          <h1 className="text-gradient-aurora">Quit-Together</h1>
+        </div>
+        <Link to="/profile" className="mobile-profile-link">
+          <Avatar src={user.avatar} size="sm" />
+        </Link>
+      </header>
+
       {/* Sidebar Navigation - simplified, no Magnetic wrappers */}
       <aside className="sidebar glass-panel">
         <div className="brand">
