@@ -1,0 +1,148 @@
+{
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "loading": "Loading...",
+        "error": "Something went wrong",
+        "success": "Success!",
+        "submit": "Submit",
+        "close": "Close",
+        "back": "Back",
+        "next": "Next",
+        "search": "Search",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "nav": {
+        "feed": "Feed",
+        "stories": "Stories",
+        "groups": "Groups",
+        "wellness": "Wellness",
+        "audio": "Audio",
+        "journal": "Journal",
+        "notifications": "Notifications",
+        "profile": "Profile",
+        "messages": "Messages"
+    },
+    "brand": {
+        "name": "Quit-Together",
+        "tagline": "Heal together, grow together"
+    },
+    "feed": {
+        "createPost": "What's on your mind?",
+        "sharePlaceholder": "Share your thoughts, victories, or challenges...",
+        "post": "Post",
+        "likes": "{{count}} likes",
+        "likes_one": "{{count}} like",
+        "likes_other": "{{count}} likes",
+        "comments": "{{count}} comments",
+        "comments_one": "{{count}} comment",
+        "comments_other": "{{count}} comments",
+        "share": "Share",
+        "report": "Report",
+        "edited": "Edited",
+        "justNow": "Just now",
+        "minutesAgo": "{{count}}m ago",
+        "hoursAgo": "{{count}}h ago",
+        "daysAgo": "{{count}}d ago"
+    },
+    "streak": {
+        "currentStreak": "Current Streak",
+        "days": "days",
+        "day": "day",
+        "checkIn": "Check In Now",
+        "checkInXP": "Check In Now (+{{xp}} XP)",
+        "checkedIn": "Checked In Today!",
+        "dontBreak": "Don't break your streak! Check in now",
+        "seeYouTomorrow": "Great job! See you tomorrow 🔥",
+        "total": "Total",
+        "best": "Best"
+    },
+    "profile": {
+        "editProfile": "Edit Profile",
+        "displayName": "Display Name",
+        "handle": "Handle",
+        "bio": "Bio",
+        "location": "Location",
+        "interests": "Interests",
+        "addInterest": "Add interest...",
+        "saveChanges": "Save Changes",
+        "avatar": "Avatar",
+        "level": "Level {{level}}",
+        "xpProgress": "{{current}} / {{total}} XP",
+        "postsShared": "Posts Shared",
+        "dayStreak": "Day Streak",
+        "checkIns": "Check-ins",
+        "badges": "Badges",
+        "achievements": "Achievement Badges"
+    },
+    "wellness": {
+        "title": "Wellness Center",
+        "breathing": "Breathing Exercise",
+        "meditation": "Meditation",
+        "games": "Mindful Games",
+        "journaling": "Journaling",
+        "soundscapes": "Soundscapes"
+    },
+    "notifications": {
+        "title": "Notifications",
+        "empty": "No notifications yet",
+        "markAllRead": "Mark all as read",
+        "liked": "liked your post",
+        "commented": "commented on your post",
+        "followed": "started following you",
+        "mentioned": "mentioned you in a post"
+    },
+    "chat": {
+        "title": "Messages",
+        "newMessage": "New Message",
+        "typeMessage": "Type a message...",
+        "send": "Send",
+        "online": "Online",
+        "offline": "Offline",
+        "lastSeen": "Last seen {{time}}",
+        "typing": "typing..."
+    },
+    "sos": {
+        "title": "Emergency Support",
+        "subtitle": "You're not alone. Help is available.",
+        "hotlines": "Crisis Hotlines",
+        "grounding": "Grounding Exercise",
+        "breathing": "Quick Breathing",
+        "close": "I'm feeling better"
+    },
+    "settings": {
+        "language": "Language",
+        "theme": "Theme",
+        "darkMode": "Dark Mode",
+        "lightMode": "Light Mode",
+        "notifications": "Notifications",
+        "privacy": "Privacy",
+        "account": "Account"
+    },
+    "errors": {
+        "network": "Network error. Please check your connection.",
+        "auth": "Authentication failed. Please try again.",
+        "notFound": "Content not found.",
+        "unauthorized": "You don't have permission to do this."
+    },
+    "report": {
+        "title": "Report Content",
+        "subtitle": "Why are you reporting this content?",
+        "spam": "Spam",
+        "harassment": "Harassment or Bullying",
+        "hateSpeech": "Hate Speech",
+        "selfHarm": "Self-Harm or Suicide",
+        "misinformation": "Misinformation",
+        "inappropriate": "Inappropriate Content",
+        "other": "Other",
+        "additionalInfo": "Additional information (optional)",
+        "placeholder": "Tell us more about why you're reporting this...",
+        "submit": "Submit Report",
+        "thankYou": "Thank you for reporting",
+        "reviewMessage": "Our team will review this content shortly.",
+        "urgentNotice": "If someone is in immediate danger, please also contact emergency services in your area."
+    }
+}

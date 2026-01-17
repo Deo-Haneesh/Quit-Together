@@ -1,0 +1,938 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./components/MemoryGame.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************/
+/* ===== Memory Game ===== */
+.memory-game {
+    padding: var(--space-lg);
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.game-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: var(--radius-md);
+    color: white;
+}
+
+.game-title h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.game-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ===== Game Stats ===== */
+.game-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+}
+
+.game-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.game-stats .stat svg {
+    color: var(--primary);
+}
+
+.game-stats .reset-btn {
+    margin-left: auto;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.game-stats .reset-btn:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+/* ===== Cards Grid ===== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: var(--space-sm);
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+}
+
+/* ===== Memory Card (Fixed) ===== */
+.memory-card {
+    width: 100%;
+    min-height: 50px;
+    aspect-ratio: 1;
+    perspective: 1000px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.memory-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped .memory-card-inner {
+    transform: rotateY(180deg);
+}
+
+.memory-card-front,
+.memory-card-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.memory-card-front {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.memory-card-back {
+    background: var(--bg-surface);
+    border: 2px solid var(--glass-border);
+    transform: rotateY(180deg);
+    font-size: 1.5rem;
+}
+
+.memory-card.matched .memory-card-back {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+    border-color: var(--success);
+    animation: matchPulse 0.5s var(--ease-spring);
+}
+
+@keyframes matchPulse {
+
+    0%,
+    100% {
+        transform: rotateY(180deg) scale(1);
+    }
+
+    50% {
+        transform: rotateY(180deg) scale(1.1);
+    }
+}
+
+/* ===== Win State ===== */
+.win-state {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    animation: scaleIn 0.4s var(--ease-spring);
+}
+
+.win-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    display: inline-block;
+}
+
+.win-state h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.win-state p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.win-state .xp-earned {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--success);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+}
+
+.play-again-btn {
+    padding: var(--space-sm) var(--space-xl);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./components/BubblePopper.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/* ===== Bubble Popper ===== */
+.bubble-popper {
+    padding: var(--space-lg);
+    position: relative;
+    overflow: visible;
+    min-height: 320px;
+}
+
+.popper-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.popper-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    color: white;
+}
+
+.popper-title h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.popper-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ===== Score Row ===== */
+.score-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+}
+
+.score-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.score-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.score-value {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.score-value.high {
+    color: var(--warning);
+}
+
+.trophy-icon {
+    color: var(--warning);
+}
+
+.score-divider {
+    width: 1px;
+    height: 20px;
+    background: var(--glass-border);
+}
+
+.reset-btn {
+    margin-left: auto;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.reset-btn:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+/* ===== Bubble Container ===== */
+.bubble-container {
+    position: relative;
+    height: 180px;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(139, 92, 246, 0.05) 100%);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* ===== Bubbles - Pure Framer Motion, NO CSS animation ===== */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 -5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* NO animation property here - Framer handles it */
+}
+
+.bubble-shine {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+/* ===== Pop Effect Particles ===== */
+.pop-effect {
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+.pop-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px currentColor;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./components/GratitudeGame.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+/* ============================================
+   GRATITUDE GAME
+   ============================================ */
+
+.gratitude-game {
+    padding: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.gratitude-game .game-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.gratitude-game .game-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.gratitude-game .game-title {
+    flex: 1 1;
+}
+
+.gratitude-game .game-title h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.gratitude-game .game-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.gratitude-game .reset-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+}
+
+/* Plant visualization */
+.plant-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.plant {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.progress-dots {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--glass-border);
+    border-radius: 50%;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.dot.filled {
+    background: var(--success);
+}
+
+/* Form */
+.gratitude-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.prompt {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+.input-row {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.input-row input {
+    flex: 1 1;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.input-row input:focus {
+    outline: none;
+    border-color: var(--success);
+}
+
+.submit-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--success);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Complete state */
+.complete-state {
+    text-align: center;
+    padding: var(--space-lg);
+}
+
+.celebration-emoji {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+}
+
+.complete-state h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.complete-state p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.xp-earned {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+/* Entries list */
+.entries-list {
+    margin-top: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.entry-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.entry-icon {
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+/* Celebration particles */
+.celebration-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    font-size: 1.5rem;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./components/ZenGarden.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/* ============================================
+   ZEN GARDEN GAME
+   ============================================ */
+
+.zen-garden {
+    padding: var(--space-lg);
+}
+
+.zen-garden .game-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.zen-garden .game-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.zen-garden .game-title {
+    flex: 1 1;
+}
+
+.zen-garden .game-title h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.zen-garden .game-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.clear-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+    transition: all var(--duration-fast);
+}
+
+.clear-btn:hover {
+    color: var(--error);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Color picker */
+.color-picker {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    margin-bottom: var(--space-md);
+}
+
+.color-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--duration-fast);
+}
+
+.color-btn.active {
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 3px var(--bg-surface), 0 0 10px currentColor;
+}
+
+/* Canvas */
+.canvas-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(145deg, #f5e6d3, #e8d5c4);
+    cursor: crosshair;
+    touch-action: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+}
+
+[data-theme="dark"] .canvas-container {
+    background: linear-gradient(145deg, #2a2520, #1f1b18);
+}
+
+.drawing-svg {
+    width: 100%;
+    height: 200px;
+    display: block;
+    color: var(--text-muted);
+}
+
+.hint-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.hint-overlay span {
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.8125rem;
+    border-radius: var(--radius-full);
+    opacity: 0.7;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[12].use[3]!./pages/GamesHub.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/* ============================================
+   GAMES HUB PAGE
+   ============================================ */
+
+.games-hub-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+}
+
+/* Header */
+.games-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-2xl);
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.header-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-surface);
+    border: 1px solid var(--text-muted);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.games-header h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+    margin-bottom: var(--space-xs);
+}
+
+.games-header p {
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+}
+
+.stats-bar {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-md) var(--space-lg);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.9375rem;
+}
+
+.stat-item svg {
+    color: var(--primary);
+}
+
+/* Games Grid */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: var(--space-lg);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+/* Game Card */
+.game-card {
+    position: relative;
+    padding: var(--space-xl);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.game-card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+    filter: blur(60px);
+    transition: opacity var(--duration-slow);
+    pointer-events: none;
+}
+
+.game-card:hover .game-card-glow {
+    display: none;
+}
+
+.game-card:hover {
+    box-shadow: var(--shadow-xl);
+}
+
+.game-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: var(--space-md);
+}
+
+.game-info h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.game-info p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin-bottom: var(--space-md);
+}
+
+.game-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.xp-reward {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+.coming-soon-badge {
+    padding: 4px 10px;
+    background: var(--bg-highlight);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+}
+
+/* Coming soon state */
+.game-card.coming-soon {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.game-card.coming-soon:hover {
+    transform: none;
+}
+
+/* Play overlay */
+.play-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(139, 92, 246, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+}
+
+.play-text {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* Tips Section */
+.tips-section {
+    padding: var(--space-lg);
+}
+
+.tips-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.tips-section ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.tips-section li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    padding-left: var(--space-md);
+    position: relative;
+}
+
+.tips-section li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .games-hub-page {
+        padding: var(--space-md);
+    }
+
+    .games-header {
+        flex-direction: column;
+    }
+
+    .stats-bar {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}

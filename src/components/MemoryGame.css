@@ -1,0 +1,203 @@
+/* ===== Memory Game ===== */
+.memory-game {
+    padding: var(--space-lg);
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.game-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: var(--radius-md);
+    color: white;
+}
+
+.game-title h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.game-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* ===== Game Stats ===== */
+.game-stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-md);
+}
+
+.game-stats .stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.game-stats .stat svg {
+    color: var(--primary);
+}
+
+.game-stats .reset-btn {
+    margin-left: auto;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    border-radius: var(--radius-md);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.game-stats .reset-btn:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+/* ===== Cards Grid ===== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+}
+
+/* ===== Memory Card (Fixed) ===== */
+.memory-card {
+    width: 100%;
+    min-height: 50px;
+    aspect-ratio: 1;
+    perspective: 1000px;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.memory-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped .memory-card-inner {
+    transform: rotateY(180deg);
+}
+
+.memory-card-front,
+.memory-card-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.memory-card-front {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.memory-card-back {
+    background: var(--bg-surface);
+    border: 2px solid var(--glass-border);
+    transform: rotateY(180deg);
+    font-size: 1.5rem;
+}
+
+.memory-card.matched .memory-card-back {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+    border-color: var(--success);
+    animation: matchPulse 0.5s var(--ease-spring);
+}
+
+@keyframes matchPulse {
+
+    0%,
+    100% {
+        transform: rotateY(180deg) scale(1);
+    }
+
+    50% {
+        transform: rotateY(180deg) scale(1.1);
+    }
+}
+
+/* ===== Win State ===== */
+.win-state {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    animation: scaleIn 0.4s var(--ease-spring);
+}
+
+.win-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+    display: inline-block;
+}
+
+.win-state h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.win-state p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.win-state .xp-earned {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--success);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+}
+
+.play-again-btn {
+    padding: var(--space-sm) var(--space-xl);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

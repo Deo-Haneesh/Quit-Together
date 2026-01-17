@@ -1,0 +1,206 @@
+/* ============================================
+   GRATITUDE GAME
+   ============================================ */
+
+.gratitude-game {
+    padding: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.gratitude-game .game-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.gratitude-game .game-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #10b981, #06b6d4);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.gratitude-game .game-title {
+    flex: 1;
+}
+
+.gratitude-game .game-title h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.gratitude-game .game-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.gratitude-game .reset-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+}
+
+/* Plant visualization */
+.plant-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.plant {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.progress-dots {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--glass-border);
+    border-radius: 50%;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.dot.filled {
+    background: var(--success);
+}
+
+/* Form */
+.gratitude-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.prompt {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+.input-row {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.input-row input {
+    flex: 1;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.input-row input:focus {
+    outline: none;
+    border-color: var(--success);
+}
+
+.submit-btn {
+    width: 36px;
+    height: 36px;
+    background: var(--success);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Complete state */
+.complete-state {
+    text-align: center;
+    padding: var(--space-lg);
+}
+
+.celebration-emoji {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+}
+
+.complete-state h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.complete-state p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.xp-earned {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+/* Entries list */
+.entries-list {
+    margin-top: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.entry-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+}
+
+.entry-icon {
+    color: var(--success);
+    flex-shrink: 0;
+}
+
+/* Celebration particles */
+.celebration-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    font-size: 1.5rem;
+}

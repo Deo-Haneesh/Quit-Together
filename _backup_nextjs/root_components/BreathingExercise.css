@@ -1,0 +1,201 @@
+.breathing-exercise {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.breathing-circle-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 3rem auto;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.breathing-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05));
+    border: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+}
+
+.breathing-circle.inhale {
+    transform: scale(1.2);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.4), rgba(16, 185, 129, 0.1));
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.5);
+}
+
+.breathing-circle.hold {
+    transform: scale(1.2);
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.4), rgba(52, 211, 153, 0.1));
+}
+
+.breathing-circle.exhale {
+    transform: scale(1);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.03));
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.breathing-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-shadow: 0 2px 10px rgba(16, 185, 129, 0.3);
+}
+
+.breathing-count {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+}
+
+.pattern-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.pattern-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--bg-highlight);
+    background: transparent;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-primary);
+}
+
+.pattern-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.pattern-btn:hover:not(.active) {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.breathing-controls {
+    margin-top: 2rem;
+}
+
+.breathing-controls button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.start-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.start-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.25);
+}
+
+.stop-btn {
+    background: var(--bg-highlight);
+    color: var(--text-primary);
+}
+
+.stop-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* ===== Stats Bar ===== */
+.breathing-stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+}
+
+.breathing-stats-bar .stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.breathing-stats-bar .stat-item svg {
+    color: var(--primary);
+}
+
+.breathing-stats-bar .active-timer {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ===== Cycle Counter ===== */
+.cycle-counter {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+}
+
+/* ===== XP Reward Popup ===== */
+.xp-reward-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: linear-gradient(135deg, #10b981, #34d399);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.5);
+    z-index: 10;
+    animation: pulseScale 0.5s ease-out;
+}
+
+@keyframes pulseScale {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* ===== XP Info ===== */
+.xp-info {
+    margin-top: var(--space-lg);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-md);
+}

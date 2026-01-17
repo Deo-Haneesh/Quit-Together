@@ -1,0 +1,204 @@
+/* ===== Wellness Page ===== */
+.wellness-page {
+    max-width: 1000px;
+    /* Wider for better grid */
+    margin: 0 auto;
+    padding-bottom: var(--space-3xl);
+}
+
+.center-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-icon-wrapper {
+    margin-bottom: var(--space-md);
+    filter: drop-shadow(0 0 10px var(--primary-glow));
+}
+
+/* ===== Section Headers ===== */
+.wellness-section {
+    margin-bottom: var(--space-3xl);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: var(--space-sm);
+}
+
+.section-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    letter-spacing: 2px;
+}
+
+.section-icon {
+    color: var(--primary);
+}
+
+.section-description {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-xl);
+    max-width: 600px;
+    font-size: 0.95rem;
+}
+
+.terminal-prefix {
+    color: var(--primary);
+    margin-right: var(--space-sm);
+    font-weight: bold;
+}
+
+/* ===== Grounding Grid ===== */
+.grounding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Responsive columns */
+    gap: var(--space-md);
+}
+
+.grounding-card {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.grounding-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.step-count-badge {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.step-header h4 {
+    font-family: var(--font-display);
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+/* ===== Tools Grid ===== */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+}
+
+.tool-card {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    height: 100%;
+    background: var(--bg-surface);
+}
+
+.tool-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+}
+
+.tool-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    border-radius: var(--radius-lg);
+    background: rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.tool-text h4 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    letter-spacing: 1px;
+}
+
+.tool-text p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.tool-action-btn {
+    margin-top: auto;
+    width: 100%;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.tool-card:hover .tool-action-btn {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Animations */
+.spin-slow {
+    animation: spin 8s linear infinite;
+}
+
+.pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}

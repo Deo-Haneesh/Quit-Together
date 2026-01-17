@@ -1,0 +1,238 @@
+/* ===== Animated Background Container ===== */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Hide SVG filters */
+.svg-filters {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+/* ===== Aurora Container ===== */
+.aurora-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    filter: url(#goo) blur(40px);
+    opacity: 0.6;
+}
+
+/* ===== Aurora Blobs ===== */
+.aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform, border-radius;
+    animation:
+        aurora-morph 20s ease-in-out infinite both alternate,
+        aurora-float 25s ease-in-out infinite both;
+}
+
+/* Blob 1 - Large Purple */
+.blob-1 {
+    width: 700px;
+    height: 700px;
+    left: -200px;
+    top: -200px;
+    background: radial-gradient(circle at 30% 30%,
+            rgba(168, 85, 247, 0.5) 0%,
+            rgba(139, 92, 246, 0.3) 40%,
+            rgba(99, 102, 241, 0.1) 70%,
+            transparent 100%);
+    animation-delay: 0s;
+}
+
+/* Blob 2 - Blue Cyan */
+.blob-2 {
+    width: 600px;
+    height: 600px;
+    right: -150px;
+    top: 15%;
+    background: radial-gradient(circle at 70% 30%,
+            rgba(59, 130, 246, 0.4) 0%,
+            rgba(6, 182, 212, 0.3) 40%,
+            rgba(16, 185, 129, 0.1) 70%,
+            transparent 100%);
+    animation-delay: -5s;
+    animation-duration: 22s, 28s;
+}
+
+/* Blob 3 - Emerald */
+.blob-3 {
+    width: 500px;
+    height: 500px;
+    left: 25%;
+    bottom: -150px;
+    background: radial-gradient(circle at 50% 70%,
+            rgba(16, 185, 129, 0.4) 0%,
+            rgba(6, 182, 212, 0.2) 40%,
+            rgba(59, 130, 246, 0.1) 70%,
+            transparent 100%);
+    animation-delay: -3s;
+    animation-duration: 18s, 23s;
+}
+
+/* Blob 4 - Indigo */
+.blob-4 {
+    width: 400px;
+    height: 400px;
+    right: 20%;
+    bottom: 5%;
+    background: radial-gradient(circle at 60% 60%,
+            rgba(99, 102, 241, 0.5) 0%,
+            rgba(139, 92, 246, 0.3) 40%,
+            rgba(168, 85, 247, 0.1) 70%,
+            transparent 100%);
+    animation-delay: -8s;
+    animation-duration: 24s, 30s;
+}
+
+/* Blob 5 - Central Glow */
+.blob-5 {
+    width: 300px;
+    height: 300px;
+    left: 45%;
+    top: 35%;
+    background: radial-gradient(circle at center,
+            rgba(139, 92, 246, 0.3) 0%,
+            rgba(6, 182, 212, 0.2) 40%,
+            transparent 70%);
+    opacity: 0.5;
+    animation-delay: -12s;
+    animation-duration: 15s, 20s;
+}
+
+/* ===== Accent Orbs ===== */
+.accent-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    will-change: transform;
+    animation: orb-pulse 4s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+    width: 200px;
+    height: 200px;
+    left: 10%;
+    top: 60%;
+    background: rgba(139, 92, 246, 0.4);
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 150px;
+    height: 150px;
+    right: 15%;
+    top: 30%;
+    background: rgba(6, 182, 212, 0.4);
+    animation-delay: -1.5s;
+}
+
+.orb-3 {
+    width: 180px;
+    height: 180px;
+    left: 60%;
+    bottom: 20%;
+    background: rgba(16, 185, 129, 0.3);
+    animation-delay: -3s;
+}
+
+/* ===== Gradient Overlay ===== */
+.gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ===== Keyframe Animations ===== */
+@keyframes aurora-morph {
+    0% {
+        border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+    }
+
+    25% {
+        border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
+    }
+
+    50% {
+        border-radius: 60% 40% 50% 50% / 50% 40% 60% 50%;
+    }
+
+    75% {
+        border-radius: 40% 60% 40% 60% / 60% 50% 40% 60%;
+    }
+
+    100% {
+        border-radius: 50% 50% 60% 40% / 40% 60% 40% 60%;
+    }
+}
+
+@keyframes aurora-float {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -20px) rotate(5deg) scale(1.05);
+    }
+
+    50% {
+        transform: translate(60px, 30px) rotate(-5deg) scale(0.95);
+    }
+
+    75% {
+        transform: translate(20px, 50px) rotate(3deg) scale(1.02);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+}
+
+@keyframes orb-pulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+/* ===== Dark Theme Adjustments ===== */
+[data-theme="dark"] .aurora-container {
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .blob-1,
+[data-theme="dark"] .blob-2,
+[data-theme="dark"] .blob-3,
+[data-theme="dark"] .blob-4,
+[data-theme="dark"] .blob-5 {
+    filter: saturate(1.2);
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .aurora-blob,
+    .accent-orb {
+        animation: none;
+    }
+}

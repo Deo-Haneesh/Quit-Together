@@ -1,0 +1,48 @@
+.avatar-component {
+    border-radius: 50%;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatar-component.fallback {
+    font-size: 1.2em;
+    font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+    border: 1px solid var(--glass-border);
+}
+
+/* Sizes */
+.avatar-xs {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.avatar-sm {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+}
+
+.avatar-md {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.avatar-lg {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+}
+
+.avatar-xl {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+}

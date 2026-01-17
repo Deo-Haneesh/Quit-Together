@@ -1,0 +1,222 @@
+/* ===== Streak Widget ===== */
+.streak-widget {
+    padding: var(--space-lg);
+}
+
+.streak-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.streak-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border-radius: var(--radius-lg);
+    color: white;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.streak-info {
+    flex: 1;
+}
+
+.streak-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.streak-count {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-xs);
+}
+
+.streak-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.streak-unit {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.streak-trend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* ===== Day Indicators ===== */
+.streak-days {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+}
+
+.day-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.day-circle {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: var(--bg-highlight);
+    border: 2px solid var(--glass-border);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.day-indicator.completed .day-circle {
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.day-indicator.today .day-circle {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3), 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.check {
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.day-letter {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.day-indicator.today .day-letter {
+    color: var(--primary);
+}
+
+/* ===== Streak Message ===== */
+.streak-message {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.streak-message svg {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+/* ===== Check-In Button ===== */
+.check-in-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s var(--ease-out);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.check-in-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.check-in-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.check-in-btn.checked {
+    background: linear-gradient(135deg, #10b981, #34d399);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    cursor: default;
+}
+
+.check-in-btn:disabled {
+    opacity: 1;
+}
+
+/* ===== Reward Popup ===== */
+.check-in-reward {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white;
+    font-weight: 600;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 10px 40px rgba(245, 158, 11, 0.5);
+    z-index: 10;
+}
+
+/* ===== Stats Row ===== */
+.streak-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--glass-border);
+}
+
+.mini-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.mini-stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.mini-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

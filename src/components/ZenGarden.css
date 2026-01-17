@@ -1,0 +1,119 @@
+/* ============================================
+   ZEN GARDEN GAME
+   ============================================ */
+
+.zen-garden {
+    padding: var(--space-lg);
+}
+
+.zen-garden .game-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.zen-garden .game-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.zen-garden .game-title {
+    flex: 1;
+}
+
+.zen-garden .game-title h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.zen-garden .game-title p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.clear-btn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+    transition: all var(--duration-fast);
+}
+
+.clear-btn:hover {
+    color: var(--error);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Color picker */
+.color-picker {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: center;
+    margin-bottom: var(--space-md);
+}
+
+.color-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all var(--duration-fast);
+}
+
+.color-btn.active {
+    border-color: var(--text-primary);
+    box-shadow: 0 0 0 3px var(--bg-surface), 0 0 10px currentColor;
+}
+
+/* Canvas */
+.canvas-container {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(145deg, #f5e6d3, #e8d5c4);
+    cursor: crosshair;
+    touch-action: none;
+    user-select: none;
+}
+
+[data-theme="dark"] .canvas-container {
+    background: linear-gradient(145deg, #2a2520, #1f1b18);
+}
+
+.drawing-svg {
+    width: 100%;
+    height: 200px;
+    display: block;
+    color: var(--text-muted);
+}
+
+.hint-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.hint-overlay span {
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 0.8125rem;
+    border-radius: var(--radius-full);
+    opacity: 0.7;
+}

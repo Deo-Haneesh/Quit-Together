@@ -1,0 +1,116 @@
+.cursor-glow,
+.cursor-glow-secondary {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.cursor-ring {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform, opacity;
+}
+
+/* Main Glow - Large ambient */
+.cursor-glow {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at center,
+            rgba(139, 92, 246, 0.12) 0%,
+            rgba(99, 102, 241, 0.06) 30%,
+            rgba(6, 182, 212, 0.03) 60%,
+            transparent 80%);
+    filter: blur(40px);
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+    opacity: 0.7;
+}
+
+.cursor-glow.hovering {
+    width: 500px;
+    height: 500px;
+    opacity: 1;
+    background: radial-gradient(circle at center,
+            rgba(139, 92, 246, 0.2) 0%,
+            rgba(99, 102, 241, 0.12) 30%,
+            rgba(6, 182, 212, 0.06) 60%,
+            transparent 80%);
+}
+
+.cursor-glow.clicking {
+    width: 300px;
+    height: 300px;
+    opacity: 0.5;
+}
+
+/* Secondary Glow - Smaller, faster */
+.cursor-glow-secondary {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle at center,
+            rgba(6, 182, 212, 0.15) 0%,
+            rgba(16, 185, 129, 0.08) 40%,
+            transparent 70%);
+    filter: blur(20px);
+    opacity: 0.5;
+    mix-blend-mode: screen;
+}
+
+/* Cursor Ring - Only visible on click */
+.cursor-ring {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--primary, #8b5cf6);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.3);
+}
+
+/* Ring appears and expands on click */
+.cursor-ring.active {
+    animation: clickRipple 0.5s ease-out forwards;
+}
+
+@keyframes clickRipple {
+    0% {
+        opacity: 1;
+        transform: scale(0.3);
+        border-width: 4px;
+    }
+
+    50% {
+        opacity: 0.7;
+        border-width: 2px;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.8);
+        border-width: 1px;
+    }
+}
+
+/* Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+    .cursor-glow,
+    .cursor-glow-secondary,
+    .cursor-ring {
+        display: none;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .cursor-glow,
+    .cursor-glow-secondary,
+    .cursor-ring {
+        display: none;
+    }
+}

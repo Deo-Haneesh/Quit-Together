@@ -1,0 +1,124 @@
+@keyframes float-particle {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: translate(var(--float-x), var(--float-y)) scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.ambient-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.6), transparent);
+    border-radius: 50%;
+    animation: float-particle var(--duration) ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    --duration: 8s;
+    --delay: 0s;
+    --float-x: 30px;
+    --float-y: -40px;
+}
+
+.particle:nth-child(2) {
+    left: 25%;
+    top: 60%;
+    --duration: 10s;
+    --delay: 1s;
+    --float-x: -25px;
+    --float-y: 35px;
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    top: 30%;
+    --duration: 12s;
+    --delay: 2s;
+    --float-x: 40px;
+    --float-y: 30px;
+}
+
+.particle:nth-child(4) {
+    left: 75%;
+    top: 50%;
+    --duration: 9s;
+    --delay: 3s;
+    --float-x: -30px;
+    --float-y: -25px;
+}
+
+.particle:nth-child(5) {
+    left: 85%;
+    top: 80%;
+    --duration: 11s;
+    --delay: 1.5s;
+    --float-x: 35px;
+    --float-y: -30px;
+}
+
+.particle:nth-child(6) {
+    left: 40%;
+    top: 70%;
+    --duration: 13s;
+    --delay: 2.5s;
+    --float-x: -20px;
+    --float-y: 40px;
+}
+
+.particle:nth-child(7) {
+    left: 60%;
+    top: 15%;
+    --duration: 10.5s;
+    --delay: 0.5s;
+    --float-x: 25px;
+    --float-y: 35px;
+}
+
+.particle:nth-child(8) {
+    left: 15%;
+    top: 85%;
+    --duration: 9.5s;
+    --delay: 3.5s;
+    --float-x: -35px;
+    --float-y: -20px;
+}
+
+.particle:nth-child(9) {
+    left: 90%;
+    top: 25%;
+    --duration: 11.5s;
+    --delay: 1.8s;
+    --float-x: 30px;
+    --float-y: -35px;
+}
+
+.particle:nth-child(10) {
+    left: 35%;
+    top: 45%;
+    --duration: 12.5s;
+    --delay: 2.2s;
+    --float-x: -40px;
+    --float-y: 25px;
+}

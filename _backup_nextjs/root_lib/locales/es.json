@@ -1,0 +1,131 @@
+{
+    "common": {
+        "save": "Guardar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "loading": "Cargando...",
+        "error": "Algo salió mal",
+        "success": "¡Éxito!",
+        "submit": "Enviar",
+        "close": "Cerrar",
+        "back": "Atrás",
+        "next": "Siguiente",
+        "search": "Buscar",
+        "settings": "Configuración",
+        "logout": "Cerrar sesión"
+    },
+    "nav": {
+        "feed": "Inicio",
+        "stories": "Historias",
+        "groups": "Grupos",
+        "wellness": "Bienestar",
+        "audio": "Audio",
+        "journal": "Diario",
+        "notifications": "Notificaciones",
+        "profile": "Perfil",
+        "messages": "Mensajes"
+    },
+    "brand": {
+        "name": "Quit-Together",
+        "tagline": "Sanar juntos, crecer juntos"
+    },
+    "feed": {
+        "createPost": "¿Qué tienes en mente?",
+        "sharePlaceholder": "Comparte tus pensamientos, victorias o desafíos...",
+        "post": "Publicar",
+        "likes": "{{count}} me gusta",
+        "likes_one": "{{count}} me gusta",
+        "likes_other": "{{count}} me gusta",
+        "comments": "{{count}} comentarios",
+        "comments_one": "{{count}} comentario",
+        "comments_other": "{{count}} comentarios",
+        "share": "Compartir",
+        "report": "Reportar",
+        "edited": "Editado",
+        "justNow": "Ahora mismo",
+        "minutesAgo": "hace {{count}}m",
+        "hoursAgo": "hace {{count}}h",
+        "daysAgo": "hace {{count}}d"
+    },
+    "streak": {
+        "currentStreak": "Racha Actual",
+        "days": "días",
+        "day": "día",
+        "checkIn": "Registrarse Ahora",
+        "checkInXP": "Registrarse (+{{xp}} XP)",
+        "checkedIn": "¡Registrado Hoy!",
+        "dontBreak": "¡No rompas tu racha! Regístrate ahora",
+        "seeYouTomorrow": "¡Buen trabajo! Hasta mañana 🔥",
+        "total": "Total",
+        "best": "Mejor"
+    },
+    "profile": {
+        "editProfile": "Editar Perfil",
+        "displayName": "Nombre",
+        "handle": "Usuario",
+        "bio": "Biografía",
+        "location": "Ubicación",
+        "interests": "Intereses",
+        "addInterest": "Agregar interés...",
+        "saveChanges": "Guardar Cambios",
+        "avatar": "Avatar",
+        "level": "Nivel {{level}}",
+        "xpProgress": "{{current}} / {{total}} XP",
+        "postsShared": "Posts Compartidos",
+        "dayStreak": "Días de Racha",
+        "checkIns": "Registros",
+        "badges": "Insignias",
+        "achievements": "Logros"
+    },
+    "wellness": {
+        "title": "Centro de Bienestar",
+        "breathing": "Ejercicio de Respiración",
+        "meditation": "Meditación",
+        "games": "Juegos Conscientes",
+        "journaling": "Diario",
+        "soundscapes": "Paisajes Sonoros"
+    },
+    "notifications": {
+        "title": "Notificaciones",
+        "empty": "No hay notificaciones aún",
+        "markAllRead": "Marcar todo como leído",
+        "liked": "le gustó tu publicación",
+        "commented": "comentó en tu publicación",
+        "followed": "comenzó a seguirte",
+        "mentioned": "te mencionó en una publicación"
+    },
+    "chat": {
+        "title": "Mensajes",
+        "newMessage": "Nuevo Mensaje",
+        "typeMessage": "Escribe un mensaje...",
+        "send": "Enviar",
+        "online": "En línea",
+        "offline": "Desconectado",
+        "lastSeen": "Visto por última vez {{time}}",
+        "typing": "escribiendo..."
+    },
+    "sos": {
+        "title": "Apoyo de Emergencia",
+        "subtitle": "No estás solo. La ayuda está disponible.",
+        "hotlines": "Líneas de Crisis",
+        "grounding": "Ejercicio de Ancla",
+        "breathing": "Respiración Rápida",
+        "close": "Me siento mejor"
+    },
+    "settings": {
+        "language": "Idioma",
+        "theme": "Tema",
+        "darkMode": "Modo Oscuro",
+        "lightMode": "Modo Claro",
+        "notifications": "Notificaciones",
+        "privacy": "Privacidad",
+        "account": "Cuenta"
+    },
+    "errors": {
+        "network": "Error de red. Por favor verifica tu conexión.",
+        "auth": "Autenticación fallida. Por favor intenta de nuevo.",
+        "notFound": "Contenido no encontrado.",
+        "unauthorized": "No tienes permiso para hacer esto."
+    }
+}

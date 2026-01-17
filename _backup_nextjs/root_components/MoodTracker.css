@@ -1,0 +1,389 @@
+/* ===== Mood Tracker ===== */
+.mood-tracker {
+    padding: var(--space-lg);
+}
+
+.mood-tracker.submitted {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+}
+
+.mood-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.mood-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: var(--radius-md);
+}
+
+.mood-title h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.mood-title p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* ===== Mood Options ===== */
+.mood-options {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.mood-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
+    background: var(--bg-elevated);
+    border: 2px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    transition: all var(--duration-normal) var(--ease-spring);
+    cursor: pointer;
+}
+
+.mood-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    border-color: var(--mood-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mood-btn.selected {
+    background: var(--mood-gradient);
+    border-color: transparent;
+    transform: translateY(-4px) scale(1.08);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--mood-color) 40%, transparent);
+}
+
+.mood-emoji {
+    font-size: 1.8rem;
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.mood-btn:hover .mood-emoji {
+    transform: scale(1.2);
+}
+
+.mood-btn.selected .mood-emoji {
+    transform: scale(1.3);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: scale(1.3) translateY(0);
+    }
+
+    50% {
+        transform: scale(1.3) translateY(-5px);
+    }
+}
+
+.mood-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color var(--duration-normal);
+}
+
+.mood-btn.selected .mood-label {
+    color: white;
+}
+
+/* ===== Submit Button ===== */
+.submit-mood {
+    width: 100%;
+    justify-content: center;
+    animation: fadeSlideUp 0.3s var(--ease-out);
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Success State ===== */
+.mood-success {
+    text-align: center;
+    animation: scaleIn 0.4s var(--ease-spring);
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: var(--radius-full);
+    color: white;
+}
+
+.mood-success h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.mood-success p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.xp-earned {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--success);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    animation: popIn 0.4s var(--ease-spring) 0.2s both;
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== History Button ===== */
+.history-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-highlight);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.history-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* ===== Quick Stats ===== */
+.mood-quick-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-md);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-md);
+}
+
+.mood-quick-stats .quick-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.mood-quick-stats .stat-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.mood-quick-stats .stat-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.mood-quick-stats .trend-up {
+    color: var(--success);
+}
+
+.mood-quick-stats .trend-down {
+    color: #ef4444;
+}
+
+.mood-quick-stats .trend-down svg {
+    transform: rotate(180deg);
+}
+
+/* ===== Mood History Modal ===== */
+.mood-history-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.mood-history-modal {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    width: 90%;
+    max-width: 400px;
+    max-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.history-header h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.close-history-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-highlight);
+    border: none;
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.close-history-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.history-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-md);
+}
+
+.no-history {
+    text-align: center;
+    color: var(--text-muted);
+    padding: var(--space-xl);
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    transition: background 0.2s;
+}
+
+.history-item:hover {
+    background: var(--bg-elevated);
+}
+
+.history-emoji {
+    font-size: 1.5rem;
+}
+
+.history-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.history-label {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.history-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.clear-history-btn {
+    margin: var(--space-md);
+    padding: var(--space-sm);
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.clear-history-btn:hover {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}

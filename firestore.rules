@@ -1,0 +1,91 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // USERS:
+    // - Anyone can read profiles (for searching/viewing)
+    // - Only the owner can write/edit their own profile
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId);
+      
+      // Subcollection: Journal (Private)
+      match /journal/{entryId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    // POSTS:
+    // - Anyone signed in can read
+    // - Any signed-in user can create
+    // - Only author can update/delete
+    match /posts/{postId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // STORIES:
+    // - Same rules as posts
+    match /stories/{storyId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isSignedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    // GROUPS:
+    // - Anyone can read
+    // - Anyone can create
+    // - Only members can likely join (handled by logic, but open for now)
+    match /groups/{groupId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update: if isSignedIn(); // Allow joining (updating member count)
+    }
+    
+    // USER GROUPS (Join status):
+    match /userGroups/{userId} {
+      allow read, write: if isOwner(userId);
+    }
+
+    // MESSAGES (Conversations):
+    // - Only participants can read/write
+    match /conversations/{conversationId} {
+      allow read: if isSignedIn() && request.auth.uid in resource.data.participants;
+      allow create: if isSignedIn();
+      // Allow update if user is a participant (e.g. updating last message)
+      allow update: if isSignedIn() && request.auth.uid in resource.data.participants;
+
+      match /messages/{messageId} {
+        allow read: if isSignedIn() && request.auth.uid in get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants;
+        allow create: if isSignedIn() && request.auth.uid in get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants;
+      }
+    }
+
+    // NOTIFICATIONS:
+    // - Users can read their own notifications
+    // - System/Users can write notifications to others
+    match /notifications/{notificationId} {
+      allow read: if isSignedIn() && resource.data.recipientId == request.auth.uid;
+      allow create: if isSignedIn(); // Allow creating notifications for others (likes/comments)
+      allow update: if isSignedIn() && resource.data.recipientId == request.auth.uid; // Allow marking as read
+    }
+
+    // GAMIFICATION:
+    // - Public read (for leaderboards/profile viewing)
+    // - Write restricted to owner (or cloud function ideally, but client for now)
+    match /gamification/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isOwner(userId);
+    }
+  }
+}

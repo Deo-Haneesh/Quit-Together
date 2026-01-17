@@ -1,0 +1,129 @@
+/* ===== Theme Toggle ===== */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius-lg);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.theme-toggle:hover {
+    background: var(--primary-light);
+}
+
+/* ===== Toggle Track ===== */
+.toggle-track {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    background: var(--bg-highlight);
+    border-radius: var(--radius-full);
+    transition: all var(--duration-normal) var(--ease-out);
+    overflow: hidden;
+}
+
+.theme-toggle.dark .toggle-track {
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+}
+
+.theme-toggle.light .toggle-track {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+/* ===== Toggle Icons (background) ===== */
+.toggle-icons {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+}
+
+.sun-icon {
+    color: #f59e0b;
+    opacity: 0.5;
+    transition: opacity var(--duration-normal);
+}
+
+.moon-icon {
+    color: #a78bfa;
+    opacity: 0.5;
+    transition: opacity var(--duration-normal);
+}
+
+.theme-toggle.light .sun-icon {
+    opacity: 0;
+}
+
+.theme-toggle.dark .moon-icon {
+    opacity: 0;
+}
+
+/* ===== Toggle Thumb ===== */
+.toggle-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--duration-slow) var(--ease-spring);
+    color: #f59e0b;
+}
+
+.theme-toggle.dark .toggle-thumb {
+    left: calc(100% - 25px);
+    color: #a78bfa;
+    background: linear-gradient(135deg, #312e81, #4c1d95);
+}
+
+.toggle-thumb svg:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.sparkle {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    color: #fbbf24;
+    opacity: 0;
+    transform: scale(0);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.theme-toggle:hover .sparkle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ===== Toggle Label ===== */
+.toggle-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--duration-normal);
+}
+
+.theme-toggle:hover .toggle-label {
+    color: var(--text-primary);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+    .theme-toggle {
+        justify-content: center;
+    }
+
+    .toggle-label {
+        display: none;
+    }
+}
