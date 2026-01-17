@@ -42,9 +42,11 @@ export function UserProvider({ children }) {
                 setUser({ ...DEFAULT_USER, ...docSnap.data() });
             } else {
                 // Initialize new user profile
+                const emailPrefix = currentUser.email ? currentUser.email.split('@')[0] : 'user';
                 const newUser = {
                     ...DEFAULT_USER,
                     name: currentUser.displayName || "New Fighter",
+                    handle: `@${emailPrefix}`,
                     avatar: currentUser.photoURL || "👤",
                     email: currentUser.email
                 };

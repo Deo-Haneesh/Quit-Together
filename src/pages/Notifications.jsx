@@ -166,19 +166,10 @@ export default function Notifications() {
         markAsRead(id);
     };
 
-    // Demo notifications for when context is empty
-    const demoNotifications = [
-        { id: 1, type: 'like', actorName: 'Sarah K.', action: 'liked your post', preview: 'Just hit 30 days...', timestamp: new Date(Date.now() - 120000), read: false },
-        { id: 2, type: 'comment', actorName: 'Mike R.', action: 'commented on your post', preview: 'This is so inspiring!', timestamp: new Date(Date.now() - 900000), read: false },
-        { id: 3, type: 'streak', action: 'Your streak is on fire!', preview: "You've checked in 7 days in a row", timestamp: new Date(Date.now() - 3600000), read: true },
-        { id: 4, type: 'achievement', action: 'You earned a new badge!', preview: 'First Week Champion 🏆', timestamp: new Date(Date.now() - 10800000), read: true },
-        { id: 5, type: 'follow', actorName: 'David L.', action: 'started following you', timestamp: new Date(Date.now() - 86400000), read: true },
-        { id: 6, type: 'welcome', action: 'Welcome to Quit-Together!', preview: 'Your journey starts now.', timestamp: new Date(Date.now() - 172800000), read: true },
-    ];
-
-    const displayNotifications = notifications.length > 0 ? filteredNotifications : demoNotifications;
-    const displayGroups = notifications.length > 0 ? groupedNotifications : groupByDate(demoNotifications);
-    const displayUnread = notifications.length > 0 ? unreadCount : demoNotifications.filter(n => !n.read).length;
+    // No more demo data - only show real-time Firestore notifications
+    const displayNotifications = filteredNotifications;
+    const displayGroups = groupedNotifications;
+    const displayUnread = unreadCount;
 
     return (
         <motion.div
