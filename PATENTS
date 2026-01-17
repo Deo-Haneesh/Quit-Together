@@ -1,0 +1,96 @@
+PATENT GRANT AND PRIOR ART DOCUMENTATION
+=========================================
+
+Project: Quit-Together
+Author: S. Deo Haneesh  
+Date of First Publication: January 2026
+Location: India
+
+================================================================================
+ADDITIONAL PATENT GRANT
+================================================================================
+
+"Software" means the Quit-Together software and associated documentation files.
+
+Subject to the terms and conditions of the Apache License, Version 2.0 (the 
+"License"), S. Deo Haneesh hereby grants to You a perpetual, worldwide, 
+non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this 
+section) patent license to make, have made, use, offer to sell, sell, import, 
+and otherwise transfer the Software, where such license applies only to those 
+patent claims, both currently owned or controlled by S. Deo Haneesh and acquired 
+in the future, licensable by S. Deo Haneesh that are necessarily infringed by 
+the Software. This grant does not include claims that would be infringed only as 
+a consequence of further modification of the Software.
+
+If you or your agent or exclusive licensee institute or order or agree to the 
+institution of patent litigation against any entity (including a cross-claim or 
+counterclaim in a lawsuit) alleging that the Software or any Contribution 
+incorporated within the Software constitutes direct or contributory patent 
+infringement, then any patent rights granted to you under this Patent Grant for 
+the Software shall terminate as of the date such litigation is filed.
+
+================================================================================
+PRIOR ART DOCUMENTATION (Defensive Publication)
+================================================================================
+
+This document serves as a defensive publication to establish prior art for the 
+following innovations as of January 2026:
+
+1. SOCIAL WELLNESS PLATFORM ARCHITECTURE
+   - Integrated social media platform specifically designed for addiction 
+     recovery and mental wellness support
+   - Combination of social feed, story sharing, and progress tracking in a 
+     unified wellness-focused interface
+   - Community-based accountability and support system with real-time 
+     notifications
+
+2. GAMIFICATION SYSTEM FOR MENTAL HEALTH
+   - Integration of casual games (Memory Match, Bubble Pop, etc.) as 
+     therapeutic tools within a social wellness platform
+   - Gratitude Garden concept: interactive game for building positive 
+     reinforcement habits
+   - Zen Garden: digital meditation space with interactive elements
+
+3. STREAK AND PROGRESS TRACKING FOR RECOVERY
+   - Visual streak tracking system integrated with social accountability
+   - Milestone celebration mechanisms with community sharing
+   - Badge and achievement system tailored for recovery journeys
+
+4. AI COMPANION FOR WELLNESS SUPPORT
+   - Integration of conversational AI (Tyler) specifically trained/prompted 
+     for addiction recovery support
+   - Personalized guidance based on user progress and community interaction
+
+5. BUDDY MATCHING ALGORITHM
+   - System for matching users with similar recovery goals for peer support
+   - Integration of messaging with accountability features
+
+================================================================================
+PURPOSE OF THIS DOCUMENT
+================================================================================
+
+This defensive publication is intended to:
+
+1. Establish prior art to prevent others from patenting these concepts
+2. Protect the open-source community's right to use these innovations
+3. Document the originality and invention date of these features
+4. Provide evidence of first publication for any future disputes
+
+================================================================================
+TIMESTAMP VERIFICATION
+================================================================================
+
+This document was first published on: January 17, 2026
+Version Control: This document is tracked in Git version control, providing 
+                 cryptographic proof of timestamp via commit hashes.
+
+For verification, check the Git commit history of this file.
+
+================================================================================
+CONTACT
+================================================================================
+
+For licensing inquiries or patent-related questions:
+S. Deo Haneesh
+
+================================================================================

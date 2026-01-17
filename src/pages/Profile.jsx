@@ -1,48 +1,81 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, Flame, MessageCircle, Gamepad2, Edit2, Check, X, MapPin, Hash, Sparkles, Star } from 'lucide-react';
+import { Trophy, Flame, MessageCircle, Gamepad2, Edit2, Check, X, MapPin, Hash, Sparkles, Star, Loader2 } from 'lucide-react';
 import { useUser } from '../contexts/UserContext';
 import { useGamification } from '../contexts/GamificationContext';
 import { useContent } from '../contexts/ContentContext';
 import { FadeIn, ScaleIn, StaggerContainer, StaggerItem, TiltCard, HoverLift } from '../components/Animations';
+import Avatar from '../components/Avatar';
 import './Profile.css';
 
 export default function Profile() {
-    const { user, updateProfile } = useUser();
+    const { user, updateProfile, loading: userLoading } = useUser();
     const { gameState, levels } = useGamification();
     const { posts } = useContent();
 
     const [isEditing, setIsEditing] = useState(false);
     const [editForm, setEditForm] = useState({
-        name: user.name,
-        handle: user.handle,
-        avatar: user.avatar,
-        bio: user.bio || "",
-        location: user.location || "",
-        interests: user.interests || []
+        name: '',
+        handle: '',
+        avatar: '',
+        bio: '',
+        location: '',
+        interests: []
     });
     const [newInterest, setNewInterest] = useState("");
 
-    const userPostsCount = posts.filter(p => p.user === user.name).length;
+    // Update edit form when user loads
+    React.useEffect(() => {
+        if (user) {
+            setEditForm({
+                name: user.name || '',
+                handle: user.handle || '',
+                avatar: user.avatar || '',
+                bio: user.bio || '',
+                location: user.location || '',
+                interests: user.interests || []
+            });
+        }
+    }, [user]);
 
-    // XP specific to next level
-    const currentLevelObj = levels.find(l => l.level === gameState.level);
-    const nextLevelObj = levels.find(l => l.level === gameState.level + 1);
+    // Loading state
+    if (userLoading || !user) {
+        return (
+            <div className="profile-page" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
+                <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                >
+                    <Loader2 size={48} color="var(--primary)" />
+                </motion.div>
+            </div>
+        );
+    }
+
+    const userPostsCount = posts ? posts.filter(p => p.user === user.name).length : 0;
+
+    // XP specific to next level - with null safety
+    const safeGameState = gameState || { level: 1, xp: 0, title: 'Novice' };
+    const safeLevels = levels || [];
+    const safeStats = user.stats || { streakDays: 0, totalCheckIns: 0 };
+
+    const currentLevelObj = safeLevels.find(l => l.level === safeGameState.level);
+    const nextLevelObj = safeLevels.find(l => l.level === safeGameState.level + 1);
     const xpForCurrentLevel = currentLevelObj ? currentLevelObj.xp : 0;
-    const xpForNextLevel = nextLevelObj ? nextLevelObj.xp : (gameState.xp + 1000);
-    const levelProgress = gameState.xp - xpForCurrentLevel;
+    const xpForNextLevel = nextLevelObj ? nextLevelObj.xp : (safeGameState.xp + 1000);
+    const levelProgress = safeGameState.xp - xpForCurrentLevel;
     const levelRange = xpForNextLevel - xpForCurrentLevel;
     const progressPercent = Math.min(100, (levelProgress / levelRange) * 100);
 
     const badges = [
         { id: 1, icon: '🔥', name: 'First Day', desc: 'Started your journey', unlocked: true },
-        { id: 2, icon: '📅', name: '3-Day Streak', desc: '3 consecutive days', unlocked: user.stats.streakDays >= 3 },
-        { id: 3, icon: '🌟', name: '7-Day Warrior', desc: '1 week strong', unlocked: user.stats.streakDays >= 7 },
+        { id: 2, icon: '📅', name: '3-Day Streak', desc: '3 consecutive days', unlocked: safeStats.streakDays >= 3 },
+        { id: 3, icon: '🌟', name: '7-Day Warrior', desc: '1 week strong', unlocked: safeStats.streakDays >= 7 },
         { id: 4, icon: '💪', name: 'First Post', desc: 'Shared your story', unlocked: userPostsCount >= 1 },
         { id: 5, icon: '🫧', name: 'Bubble Master', desc: 'Popped 100 bubbles', unlocked: false },
-        { id: 6, icon: '🧘', name: 'Zen Mode', desc: 'Reached Level 3', unlocked: gameState.level >= 3 },
-        { id: 7, icon: '🏆', name: '30-Day Legend', desc: '1 month milestone', unlocked: user.stats.streakDays >= 30 },
-        { id: 8, icon: '💎', name: 'Level 5', desc: 'Reached level 5', unlocked: gameState.level >= 5 },
+        { id: 6, icon: '🧘', name: 'Zen Mode', desc: 'Reached Level 3', unlocked: safeGameState.level >= 3 },
+        { id: 7, icon: '🏆', name: '30-Day Legend', desc: '1 month milestone', unlocked: safeStats.streakDays >= 30 },
+        { id: 8, icon: '💎', name: 'Level 5', desc: 'Reached level 5', unlocked: safeGameState.level >= 5 },
     ];
 
     const handleSaveProfile = () => {
@@ -214,19 +247,26 @@ export default function Profile() {
                                             animate={{ rotate: 360 }}
                                             transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
                                         />
-                                        <div className="profile-avatar-large">{user.avatar}</div>
+                                        <div className="profile-avatar-large">
+                                            <Avatar
+                                                src={user.avatar}
+                                                alt={user.name}
+                                                size="lg"
+                                                className="profile-avatar-img"
+                                            />
+                                        </div>
                                         <motion.div
                                             className="level-badge-profile"
                                             whileHover={{ scale: 1.2 }}
                                         >
                                             <Star size={10} />
-                                            <span>{gameState.level}</span>
+                                            <span>{safeGameState.level}</span>
                                         </motion.div>
                                     </motion.div>
 
                                     <h2 className="profile-name">{user.name}</h2>
                                     <span className="profile-handle">{user.handle}</span>
-                                    <div className="profile-title text-gradient-aurora">{gameState.title}</div>
+                                    <div className="profile-title text-gradient-aurora">{safeGameState.title}</div>
 
                                     {user.bio && <p className="profile-bio">{user.bio}</p>}
 
@@ -259,8 +299,8 @@ export default function Profile() {
 
                                     <div className="xp-container">
                                         <div className="xp-info">
-                                            <span className="xp-level">Level {gameState.level}</span>
-                                            <span className="xp-progress">{gameState.xp} / {xpForNextLevel} XP</span>
+                                            <span className="xp-level">Level {safeGameState.level}</span>
+                                            <span className="xp-progress">{safeGameState.xp} / {xpForNextLevel} XP</span>
                                         </div>
                                         <div className="xp-bar">
                                             <motion.div
@@ -311,7 +351,7 @@ export default function Profile() {
                             >
                                 <Flame size={28} />
                             </motion.div>
-                            <div className="stat-value">{user.stats.streakDays}</div>
+                            <div className="stat-value">{safeStats.streakDays}</div>
                             <div className="stat-label">Day Streak</div>
                         </div>
                     </HoverLift>
@@ -327,7 +367,7 @@ export default function Profile() {
                             >
                                 <Gamepad2 size={28} />
                             </motion.div>
-                            <div className="stat-value">{user.stats.totalCheckIns}</div>
+                            <div className="stat-value">{safeStats.totalCheckIns}</div>
                             <div className="stat-label">Check-ins</div>
                         </div>
                     </HoverLift>
