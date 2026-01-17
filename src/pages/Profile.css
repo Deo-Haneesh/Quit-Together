@@ -502,3 +502,76 @@
     color: var(--primary) !important;
     border-radius: 4px;
 }
+
+/* ===== Mobile Profile Fixes ===== */
+@media (max-width: 768px) {
+    .profile-page {
+        padding: 0 var(--space-sm);
+    }
+
+    .profile-hero {
+        padding: var(--space-lg) var(--space-sm);
+    }
+
+    .profile-avatar-large {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .avatar-ring {
+        inset: -4px;
+    }
+
+    .profile-name {
+        font-size: 1.4rem;
+        word-break: break-word;
+    }
+
+    .profile-handle {
+        font-size: 0.85rem;
+        word-break: break-all;
+    }
+
+    .profile-title {
+        font-size: 0.95rem;
+    }
+
+    .profile-bio {
+        font-size: 0.9rem;
+        padding: 0 var(--space-sm);
+    }
+
+    .profile-meta {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-sm);
+    }
+
+    .xp-container {
+        max-width: 100%;
+        padding: 0 var(--space-md);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-md);
+    }
+
+    .stat-card {
+        padding: var(--space-md);
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .level-badge-profile {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+}

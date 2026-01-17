@@ -81,7 +81,8 @@ export default function Layout() {
   const { unreadTotal } = useMessages();
   const { t } = useTranslation();
 
-  const navItems = [
+  // Desktop nav - full list
+  const desktopNavItems = [
     { icon: Home, label: t('nav.feed'), path: '/' },
     { icon: BookOpen, label: t('nav.stories'), path: '/stories' },
     { icon: MessageCircle, label: t('nav.groups'), path: '/groups' },
@@ -91,8 +92,19 @@ export default function Layout() {
     { icon: PenTool, label: t('nav.journal'), path: '/journal' },
     { icon: Bell, label: t('nav.notifications'), path: '/notifications' },
     { icon: User, label: t('nav.profile'), path: '/profile' },
-    { icon: Search, label: t('nav.allies', 'Allies'), action: 'toggleUsers', mobileOnly: true },
   ];
+
+  // Mobile bottom nav - Instagram/Twitter style (5 items max, no labels)
+  const mobileNavItems = [
+    { icon: Home, label: 'Feed', path: '/' },
+    { icon: BookOpen, label: 'Stories', path: '/stories' },
+    { icon: Heart, label: 'Wellness', path: '/wellness' },
+    { icon: Bell, label: 'Alerts', path: '/notifications' },
+    { icon: User, label: 'Profile', path: '/profile' },
+  ];
+
+  // For backward compatibility
+  const navItems = desktopNavItems;
 
   return (
     <div className="layout">
@@ -105,16 +117,39 @@ export default function Layout() {
       {/* Cursor effect - optimized */}
       <CursorGlow />
 
-      {/* Mobile Header */}
-      <header className="mobile-header glass-panel">
+      {/* Mobile Header - Instagram Style */}
+      <header className="mobile-header">
         <div className="mobile-brand">
           <img src="/combined.jpg" alt="Logo" className="mobile-logo" />
-          <h1 className="text-gradient-aurora">Quit-Together</h1>
+          <span className="mobile-title">Quit-Together</span>
         </div>
-        <Link to="/profile" className="mobile-profile-link">
-          <Avatar src={user.avatar} size="sm" />
-        </Link>
+        <div className="mobile-header-actions">
+          <Link to="/messages" className="mobile-action-btn">
+            <Mail size={22} />
+            {unreadTotal > 0 && <span className="action-badge">{unreadTotal}</span>}
+          </Link>
+          <Link to="/groups" className="mobile-action-btn">
+            <MessageCircle size={22} />
+          </Link>
+        </div>
       </header>
+
+      {/* Mobile Bottom Navigation - 5 icons, no labels */}
+      <nav className="mobile-bottom-nav">
+        {mobileNavItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = location.pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`mobile-nav-item ${isActive ? 'active' : ''}`}
+            >
+              <Icon size={26} strokeWidth={isActive ? 2.5 : 1.5} />
+            </Link>
+          );
+        })}
+      </nav>
 
       {/* Sidebar Navigation - simplified, no Magnetic wrappers */}
       <aside className="sidebar glass-panel">

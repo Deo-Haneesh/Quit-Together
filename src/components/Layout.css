@@ -426,35 +426,111 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 60px;
+        height: 56px;
         z-index: 10000;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 var(--space-md);
+        padding: 0 16px;
+        background: rgba(10, 10, 10, 0.98);
         border-bottom: 1px solid var(--glass-border);
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
     }
 
     .mobile-brand {
         display: flex;
         align-items: center;
-        gap: var(--space-sm);
+        gap: 10px;
     }
 
     .mobile-logo {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        border: 1px solid var(--glass-border);
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
     }
 
-    .mobile-brand h1 {
+    .mobile-title {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         letter-spacing: 1px;
-        margin: 0;
+        color: var(--text-primary);
+    }
+
+    .mobile-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .mobile-action-btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        border-radius: 50%;
+        transition: all 0.2s;
+    }
+
+    .mobile-action-btn:hover {
+        background: var(--bg-highlight);
+        color: var(--primary);
+    }
+
+    .action-badge {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        min-width: 16px;
+        height: 16px;
+        background: var(--primary);
+        color: white;
+        font-size: 0.6rem;
+        font-weight: 700;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mobile Bottom Nav - Instagram/Twitter Style */
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: rgba(10, 10, 10, 0.98);
+        border-top: 1px solid var(--glass-border);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    .mobile-nav-item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: var(--text-muted);
+        transition: color 0.15s;
+    }
+
+    .mobile-nav-item.active {
+        color: var(--primary);
+    }
+
+    .mobile-nav-item.active svg {
+        filter: drop-shadow(0 0 6px var(--primary-glow));
+    }
+
+    /* Hide desktop sidebar on mobile, show new mobile nav */
+    .sidebar {
+        display: none !important;
     }
 
     /* Sidebar transforms into Bottom Nav */
@@ -599,8 +675,9 @@
 @media (min-width: 769px) {
 
     .nav-item.mobile-only,
-    .mobile-header {
-        display: none;
+    .mobile-header,
+    .mobile-bottom-nav {
+        display: none !important;
     }
 
     .mobile-panel-header {
